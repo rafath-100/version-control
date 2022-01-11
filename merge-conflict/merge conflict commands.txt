@@ -1,0 +1,136 @@
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ git branch
+  greeting
+  login
+* main
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ touch hello.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ git add hello.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ git add -A
+warning: adding embedded git repository: local
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint:   git submodule add <url> local
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint:   git rm --cached local
+hint:
+hint: See "git help submodule" for more information.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ git commit -m "commit to main branch"
+[main 5219ae0] commit to main branch
+ 6 files changed, 173 insertions(+)
+ create mode 100644 3-way-merge/3-way-merge commands.txt
+ create mode 100644 ff-merge/fast forward-merge commands.txt
+ rename {fast-merge => ff-merge}/greeting.txt (100%)
+ create mode 160000 local
+ create mode 100644 merge-conflict/hello.txt
+ create mode 100644 remote-repo.git
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ git branch -d greeting
+Deleted branch greeting (was a23feb9).
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ git commit -m "commit to main branch"
+On branch main
+nothing to commit, working tree clean
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ git status
+On branch main
+nothing to commit, working tree clean
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ git branch
+  login
+* main
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ git branch mybranch
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ git switch mybranch
+Switched to branch 'mybranch'
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (mybranch)
+$ touch hello.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (mybranch)
+$ echo "content to append" >> hello.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (mybranch)
+$ git commit -m "commit to mybranch branch"
+On branch mybranch
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hello.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (mybranch)
+$ git add .
+warning: LF will be replaced by CRLF in merge-conflict/hello.txt.
+The file will have its original line endings in your working directory
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (mybranch)
+$ git commit -m "commit to mybranch branch"
+[mybranch f1b5ac1] commit to mybranch branch
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (mybranch)
+$ git switch main
+Switched to branch 'main'
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ git merge mybranch
+Updating 5219ae0..f1b5ac1
+Fast-forward
+ merge-conflict/hello.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ git status
+On branch main
+nothing to commit, working tree clean
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ cat hello.txt
+this file displays a hello message!content to append
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ git status
+On branch main
+nothing to commit, working tree clean
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/merge-conflict (main)
+$ git log --oneline --graph
+* f1b5ac1 (HEAD -> main, mybranch) commit to mybranch branch
+* 5219ae0 commit to main branch
+* f2806cf commit after change
+* b7b656a initial commit
+* 3b790e9 commit after change in text file
+* cc0cc7a initial commit
+*   9fdb4c6 Merge branch 'greeting' into main
+|\
+| * a23feb9 3 way merge
+* | 3229c1d read me commit
+|/
+* 013a3fb greeting
+* 1a0c39e second commit
+* e4ce9f8 initial commit
+* eeea00e (login) changed readme
+* ea68554 initial commit
+* aff4d03 first commit

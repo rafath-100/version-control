@@ -1,0 +1,201 @@
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-commands (main)
+$ ls -la
+total 5
+drwxr-xr-x 1 HP 197121  0 Jan 11 12:25  ./
+drwxr-xr-x 1 HP 197121  0 Jan 11 12:09  ../
+-rw-r--r-- 1 HP 197121  0 Jan 11 12:25 'basic commits commands.txt'
+-rw-r--r-- 1 HP 197121 35 Jan 10 23:49  file.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-commands (main)
+$ git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        basic commits commands.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-commands (main)
+$ git log
+commit d359c97c7d06dc3659b542ced40d2316645c1e75 (HEAD -> main, origin/main, Mergesort-Impl)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 11:58:00 2022 +0530
+
+    final commit
+
+commit f1b5ac1b4aa1fd76875bc556501622ca8d5b5efd (mybranch)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 00:13:31 2022 +0530
+
+    commit to mybranch branch
+
+commit 5219ae0f2b4cf348623a29da32d01c6a8c35d175
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 00:09:28 2022 +0530
+
+    commit to main branch
+
+commit f2806cf822c0e09673b5235078cba47fc78ccd32
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Mon Jan 10 23:49:50 2022 +0530
+
+    commit after change
+
+commit b7b656a703a42d0d16ad1fe6cac5f439fff4b367
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Mon Jan 10 23:48:28 2022 +0530
+
+    initial commit
+
+commit 3b790e92e015067e0bfdfb8331afe0e62a8ad252
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Mon Jan 10 23:44:31 2022 +0530
+
+    commit after change in text file
+
+commit cc0cc7a210999c48a058773845a8c2696686b7a7
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Mon Jan 10 23:42:06 2022 +0530
+
+    initial commit
+
+commit 9fdb4c63f3fd933bb79ea864049c6b1a47ad6b39
+Merge: 3229c1d a23feb9
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Mon Jan 10 20:51:44 2022 +0530
+
+commit b7b656a703a42d0d16ad1fe6cac5f439fff4b367
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Mon Jan 10 23:48:28 2022 +0530
+
+    initial commit
+
+commit 3b790e92e015067e0bfdfb8331afe0e62a8ad252
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Mon Jan 10 23:44:31 2022 +0530
+
+    commit after change in text file
+
+commit cc0cc7a210999c48a058773845a8c2696686b7a7
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Mon Jan 10 23:42:06 2022 +0530
+
+    initial commit
+
+commit 9fdb4c63f3fd933bb79ea864049c6b1a47ad6b39
+Merge: 3229c1d a23feb9
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Mon Jan 10 20:51:44 2022 +0530
+
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-commands (main)
+$ git add .
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-commands (main)
+$ git commit -m "first commit"
+[main fa3ebd2] first commit
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ create mode 100644 basic-commands/basic commits commands.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-commands (main)
+$ git status
+On branch main
+nothing to commit, working tree clean
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-commands (main)
+$ git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-commands (main)
+$ git add .
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-commands (main)
+$ git commit -m "final commit"
+[main 95369fb] final commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-commands (main)
+$ git status
+On branch main
+nothing to commit, working tree clean
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-commands (main)
+$ git log
+commit 95369fb395c92cfa9538e858fd8be8b46a8447f9 (HEAD -> main)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 12:29:44 2022 +0530
+
+    final commit
+
+commit fa3ebd27333fc1519a950a92063386c62ef007f8
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 12:28:54 2022 +0530
+
+    first commit
+
+commit d359c97c7d06dc3659b542ced40d2316645c1e75 (origin/main, Mergesort-Impl)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 11:58:00 2022 +0530
+
+    final commit
+
+commit f1b5ac1b4aa1fd76875bc556501622ca8d5b5efd (mybranch)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 00:13:31 2022 +0530
+
+    commit to mybranch branch
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-commands (main)
+$ git log --oneline
+95369fb (HEAD -> main) final commit
+fa3ebd2 first commit
+d359c97 (origin/main, Mergesort-Impl) final commit
+f1b5ac1 (mybranch) commit to mybranch branch
+5219ae0 commit to main branch
+f2806cf commit after change
+b7b656a initial commit
+3b790e9 commit after change in text file
+cc0cc7a initial commit
+9fdb4c6 Merge branch 'greeting' into main
+3229c1d read me commit
+a23feb9 3 way merge
+013a3fb greeting
+1a0c39e second commit
+e4ce9f8 initial commit
+eeea00e (login) changed readme
+ea68554 initial commit
+aff4d03 first commit
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-commands (main)
+$ git log --oneline --graph
+* 95369fb (HEAD -> main) final commit
+* fa3ebd2 first commit
+* d359c97 (origin/main, Mergesort-Impl) final commit
+* f1b5ac1 (mybranch) commit to mybranch branch
+* 5219ae0 commit to main branch
+* f2806cf commit after change
+* b7b656a initial commit
+* 3b790e9 commit after change in text file
+* cc0cc7a initial commit
+*   9fdb4c6 Merge branch 'greeting' into main
+|\
+| * a23feb9 3 way merge
+* | 3229c1d read me commit
+|/
+* 013a3fb greeting
+* 1a0c39e second commit
+* e4ce9f8 initial commit
+* eeea00e (login) changed readme
+* ea68554 initial commit
+* aff4d03 first commit

@@ -1,0 +1,195 @@
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ ls
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ git log
+commit 7ce156bd89ba0938252824e335c9bbf12b7e0854 (HEAD -> main)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 14:44:05 2022 +0530
+
+    Revert "first commit"
+
+    This reverts commit 77a31f12127ad0e9e2804de5bbde58db2f6b2b7f.
+
+commit 77a31f12127ad0e9e2804de5bbde58db2f6b2b7f
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 14:40:11 2022 +0530
+
+    first commit
+
+commit 93344e6960dbf147b96875bfda262fbe150e7919 (rafath)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 14:34:54 2022 +0530
+
+    rafath commit
+
+commit dc2bfe9fef17ffdb7ff6391c85359cfbc5882b00
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:29:37 2022 +0530
+
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ git stage
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ git reset --soft HEAD~1
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ git log
+commit 77a31f12127ad0e9e2804de5bbde58db2f6b2b7f (HEAD -> main)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 14:40:11 2022 +0530
+
+    first commit
+
+commit 93344e6960dbf147b96875bfda262fbe150e7919 (rafath)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 14:34:54 2022 +0530
+
+    rafath commit
+
+commit dc2bfe9fef17ffdb7ff6391c85359cfbc5882b00
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:29:37 2022 +0530
+
+    rebase commit
+
+commit 61b07d68c0ecbaad0d410231f8a358e6451f5a8d
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:11:37 2022 +0530
+
+    rafath 2nd commit
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    ../basic-revert/basic revert commands.txt
+        deleted:    ../basic-revert/greet.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../basic-revert/
+        ../rebase branch/
+
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ git reset --mixed HEAD~1
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ git log
+commit 93344e6960dbf147b96875bfda262fbe150e7919 (HEAD -> main, rafath)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 14:34:54 2022 +0530
+
+    rafath commit
+
+commit dc2bfe9fef17ffdb7ff6391c85359cfbc5882b00
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:29:37 2022 +0530
+
+    rebase commit
+
+commit 61b07d68c0ecbaad0d410231f8a358e6451f5a8d
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:11:37 2022 +0530
+
+    rafath 2nd commit
+
+commit 5334956b06c292ca36e635996bf5f4de7a177205 (ok)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:22:55 2022 +0530
+
+    mok
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ git add .
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ ls
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ git log --oneline
+93344e6 (HEAD -> main, rafath) rafath commit
+dc2bfe9 rebase commit
+61b07d6 rafath 2nd commit
+5334956 (ok) mok
+05532cc main
+c6cdc31 (second) second commit
+83ff373 main commit
+5195f22 rafath commit
+5505995 main commit
+612c09f (new) new
+95369fb (origin/main) final commit
+fa3ebd2 first commit
+d359c97 (Mergesort-Impl) final commit
+f1b5ac1 (mybranch) commit to mybranch branch
+5219ae0 commit to main branch
+f2806cf commit after change
+b7b656a initial commit
+3b790e9 commit after change in text file
+cc0cc7a initial commit
+9fdb4c6 Merge branch 'greeting' into main
+3229c1d read me commit
+a23feb9 3 way merge
+013a3fb greeting
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ git commit --amend
+[main 1fafba3] rafath commit
+ Date: Tue Jan 11 14:34:54 2022 +0530
+ 3 files changed, 91 insertions(+), 3 deletions(-)
+ create mode 100644 merge-sort/mergesort commands.txt
+ delete mode 100644 mergesort/a.txt
+ delete mode 100644 mergesort/hello.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../basic-revert/
+        ../rebase branch/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ git reset --hard HEAD~1
+HEAD is now at dc2bfe9 rebase commit
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ git log
+commit dc2bfe9fef17ffdb7ff6391c85359cfbc5882b00 (HEAD -> main)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:29:37 2022 +0530
+
+    rebase commit
+
+commit 61b07d68c0ecbaad0d410231f8a358e6451f5a8d
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:11:37 2022 +0530
+
+    rafath 2nd commit
+
+commit 5334956b06c292ca36e635996bf5f4de7a177205 (ok)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:22:55 2022 +0530
+
+    mok
+
+commit 05532cc8061cf58d9e91f2253eefe5ccb8f992b8
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:21:43 2022 +0530
+
+    main
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reset-10 (main)
+$ git add .

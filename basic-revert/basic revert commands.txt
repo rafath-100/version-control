@@ -1,0 +1,208 @@
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ git log --decorate --oneline
+93344e6 (HEAD -> main, rafath) rafath commit
+dc2bfe9 rebase commit
+61b07d6 rafath 2nd commit
+5334956 (ok) mok
+05532cc main
+c6cdc31 (second) second commit
+83ff373 main commit
+5195f22 rafath commit
+5505995 main commit
+612c09f (new) new
+95369fb (origin/main) final commit
+fa3ebd2 first commit
+d359c97 (Mergesort-Impl) final commit
+f1b5ac1 (mybranch) commit to mybranch branch
+5219ae0 commit to main branch
+f2806cf commit after change
+b7b656a initial commit
+3b790e9 commit after change in text file
+cc0cc7a initial commit
+9fdb4c6 Merge branch 'greeting' into main
+3229c1d read me commit
+a23feb9 3 way merge
+013a3fb greeting
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ cat greet.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ cat greet.txt
+Assalamualikum!
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ git add .
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ git commit -m "first commit"
+[main 77a31f1] first commit
+ 2 files changed, 1 insertion(+)
+ create mode 100644 basic-revert/basic revert commands.txt
+ create mode 100644 basic-revert/greet.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ git revert
+usage: git revert [<options>] <commit-ish>...
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    --skip                skip current commit and continue
+    --cleanup <mode>      how to strip spaces and #comments from message
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add Signed-off-by:
+    -m, --mainline <parent-number>
+                          select mainline parent
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ git revert -n
+usage: git revert [<options>] <commit-ish>...
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    --skip                skip current commit and continue
+    --cleanup <mode>      how to strip spaces and #comments from message
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add Signed-off-by:
+    -m, --mainline <parent-number>
+                          select mainline parent
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ git log --decorate --oneline
+77a31f1 (HEAD -> main) first commit
+93344e6 (rafath) rafath commit
+dc2bfe9 rebase commit
+61b07d6 rafath 2nd commit
+5334956 (ok) mok
+05532cc main
+c6cdc31 (second) second commit
+83ff373 main commit
+5195f22 rafath commit
+5505995 main commit
+612c09f (new) new
+95369fb (origin/main) final commit
+fa3ebd2 first commit
+d359c97 (Mergesort-Impl) final commit
+f1b5ac1 (mybranch) commit to mybranch branch
+5219ae0 commit to main branch
+f2806cf commit after change
+b7b656a initial commit
+3b790e9 commit after change in text file
+cc0cc7a initial commit
+9fdb4c6 Merge branch 'greeting' into main
+3229c1d read me commit
+a23feb9 3 way merge
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ cat greet.txt
+Assalamualikum!
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ ls
+'basic revert commands.txt'   greet.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ git revert 77a31f1
+Deletion of directory 'basic-revert' failed. Should I try again? (y/n) y
+Deletion of directory 'basic-revert' failed. Should I try again? (y/n) n
+Removing basic-revert/greet.txt
+Removing basic-revert/basic revert commands.txt
+[main 7ce156b] Revert "first commit"
+ 2 files changed, 1 deletion(-)
+ delete mode 100644 basic-revert/basic revert commands.txt
+ delete mode 100644 basic-revert/greet.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ cat greet.txt
+cat: greet.txt: No such file or directory
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ git log --decorate --oneline
+7ce156b (HEAD -> main) Revert "first commit"
+77a31f1 first commit
+93344e6 (rafath) rafath commit
+dc2bfe9 rebase commit
+61b07d6 rafath 2nd commit
+5334956 (ok) mok
+05532cc main
+c6cdc31 (second) second commit
+83ff373 main commit
+5195f22 rafath commit
+5505995 main commit
+612c09f (new) new
+95369fb (origin/main) final commit
+fa3ebd2 first commit
+d359c97 (Mergesort-Impl) final commit
+f1b5ac1 (mybranch) commit to mybranch branch
+5219ae0 commit to main branch
+f2806cf commit after change
+b7b656a initial commit
+3b790e9 commit after change in text file
+cc0cc7a initial commit
+9fdb4c6 Merge branch 'greeting' into main
+3229c1d read me commit
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ ls
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ git show
+commit 7ce156bd89ba0938252824e335c9bbf12b7e0854 (HEAD -> main)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 14:44:05 2022 +0530
+
+    Revert "first commit"
+
+    This reverts commit 77a31f12127ad0e9e2804de5bbde58db2f6b2b7f.
+
+diff --git a/basic-revert/basic revert commands.txt b/basic-revert/basic revert commands.txt
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/basic-revert/greet.txt b/basic-revert/greet.txt
+deleted file mode 100644
+index 00368dc..0000000
+--- a/basic-revert/greet.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-Assalamualikum!
+\ No newline at end of file
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic-revert (main)
+$ git show 77a31f1
+commit 77a31f12127ad0e9e2804de5bbde58db2f6b2b7f
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 14:40:11 2022 +0530
+
+    first commit
+
+diff --git a/basic-revert/basic revert commands.txt b/basic-revert/basic revert commands.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/basic-revert/greet.txt b/basic-revert/greet.txt
+new file mode 100644
+index 0000000..00368dc
+--- /dev/null
++++ b/basic-revert/greet.txt
+@@ -0,0 +1 @@
++Assalamualikum!
+\ No newline at end of fil

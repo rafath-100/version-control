@@ -1,0 +1,57 @@
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic cleaning-11 (main)
+$ ls -R
+.:
+app.py  calc.c  src/
+
+./src:
+mylib.c
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic cleaning-11 (main)
+$ git clean -n
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic cleaning-11 (main)
+$ ls -R
+.:
+app.py  calc.c  src/
+
+./src:
+mylib.c
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic cleaning-11 (main)
+$ git add .
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic cleaning-11 (main)
+$ git add src/mylib.c
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic cleaning-11 (main)
+$ git clean -n
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic cleaning-11 (main)
+$ git clean -n -d
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic cleaning-11 (main)
+$ git clean -f -d
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic cleaning-11 (main)
+$ ls -R
+.:
+app.py  calc.c  src/
+
+./src:
+mylib.c
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic cleaning-11 (main)
+$ git add src/mylib.c
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic cleaning-11 (main)
+$ git clean -n
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic cleaning-11 (main)
+$ git clean -n -d
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic cleaning-11 (main)
+$ git clean -f -d
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/basic cleaning-11 (main)
+$ ls
+app.py  calc.c  src/

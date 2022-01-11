@@ -1,0 +1,154 @@
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git log --oneline --graph
+*   d9336fc (HEAD -> main) final
+|\
+| * 764f905 (merging) ali's merging commit
+* | a252424 ali's commit
+|/
+* 558016e (origin/main) m
+* 740f75d Revert "rafath 2nd commit"
+* dc2bfe9 rebase commit
+* 61b07d6 rafath 2nd commit
+* 5334956 (ok) mok
+* 05532cc main
+* c6cdc31 (second) second commit
+* 83ff373 main commit
+* 5195f22 rafath commit
+* 5505995 main commit
+* 612c09f (new) new
+* 95369fb final commit
+* fa3ebd2 first commit
+* d359c97 (Mergesort-Impl) final commit
+* f1b5ac1 (mybranch) commit to mybranch branch
+* 5219ae0 commit to main branch
+* f2806cf commit after change
+* b7b656a initial commit
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git reflog
+d9336fc (HEAD -> main) HEAD@{0}: commit (merge): final
+a252424 HEAD@{1}: checkout: moving from merging to main
+764f905 (merging) HEAD@{2}: commit: ali's merging commit
+558016e (origin/main) HEAD@{3}: checkout: moving from main to merging
+a252424 HEAD@{4}: commit: ali's commit
+558016e (origin/main) HEAD@{5}: commit: m
+740f75d HEAD@{6}: commit (amend): Revert "rafath 2nd commit"
+a940864 HEAD@{7}: commit (amend): Revert "rafath 2nd commit"
+8d4f50f HEAD@{8}: revert: Revert "rafath 2nd commit"
+dc2bfe9 HEAD@{9}: reset: moving to HEAD~1
+1fafba3 HEAD@{10}: commit (amend): rafath commit
+93344e6 (rafath) HEAD@{11}: reset: moving to HEAD~1
+77a31f1 HEAD@{12}: reset: moving to HEAD~1
+7ce156b HEAD@{13}: revert: Revert "first commit"
+77a31f1 HEAD@{14}: commit: first commit
+93344e6 (rafath) HEAD@{15}: merge rafath: Fast-forward
+dc2bfe9 HEAD@{16}: checkout: moving from rafath to main
+93344e6 (rafath) HEAD@{17}: commit: rafath commit
+dc2bfe9 HEAD@{18}: checkout: moving from rafath to rafath
+dc2bfe9 HEAD@{19}: checkout: moving from main to rafath
+dc2bfe9 HEAD@{20}: merge rafath: Fast-forward
+5334956 (ok) HEAD@{21}: checkout: moving from rafath to main
+dc2bfe9 HEAD@{22}: rebase (finish): returning to refs/heads/rafath
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git rebase -i dc2bfe9
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git add .
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git rebase -i dc2bfe9
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git commit -m "final commit"
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    ../merge-sort/ali.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../merge-sort-7/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git rebase -i dc2bfe9
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git status
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    ../merge-sort/ali.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../merge-sort-7/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git add -A
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git rebase -i dc2bfe9
+error: cannot rebase: Your index contains uncommitted changes.
+error: Please commit or stash them.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git rebase -i <after-this-commit>
+bash: syntax error near unexpected token `newline'
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git rebase -i d9336fc
+error: cannot rebase: Your index contains uncommitted changes.
+error: Please commit or stash them.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git add .
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git commit -m "final"
+[main d3beffd] final
+ 2 files changed, 110 insertions(+)
+ rename {merge-sort => merge-sort-7}/ali.txt (100%)
+ create mode 100644 merge-sort-7/merge-sort commands.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git rebase -i d9336fc
+Successfully rebased and updated refs/heads/main.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/reordering-history-13 (main)
+$ git log --oneline --graph
+* d3beffd (HEAD -> main) final
+*   d9336fc final
+|\
+| * 764f905 (merging) ali's merging commit
+* | a252424 ali's commit
+|/
+* 558016e (origin/main) m
+* 740f75d Revert "rafath 2nd commit"
+* dc2bfe9 rebase commit
+* 61b07d6 rafath 2nd commit
+* 5334956 (ok) mok
+* 05532cc main
+* c6cdc31 (second) second commit
+* 83ff373 main commit
+* 5195f22 rafath commit
+* 5505995 main commit
+* 612c09f (new) new
+* 95369fb final commit
+* fa3ebd2 first commit
+* d359c97 (Mergesort-Impl) final commit
+* f1b5ac1 (mybranch) commit to mybranch branch
+* 5219ae0 commit to main branch
+* f2806cf commit after change

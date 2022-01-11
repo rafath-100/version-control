@@ -1,0 +1,90 @@
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/3-way-merge (main)
+$ git branch greeting
+fatal: A branch named 'greeting' already exists.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/3-way-merge (main)
+$ git branch
+  greeting
+  login
+* main
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/3-way-merge (main)
+$ git switch greeting
+Switched to branch 'greeting'
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/3-way-merge (greeting)
+$ ls
+greeting.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/3-way-merge (greeting)
+$ git switch main
+Deletion of directory '3-way-merge' failed. Should I try again? (y/n) n
+Switched to branch 'main'
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/3-way-merge (main)
+$ touch README.md
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/3-way-merge (main)
+$ git add .
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/3-way-merge (main)
+$ git commit -m "read me commit"
+[main 3229c1d] read me commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 3-way-merge/README.md
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/3-way-merge (main)
+$ git log --oneline --graph --all
+* 3229c1d (HEAD -> main) read me commit
+| * a23feb9 (greeting) 3 way merge
+|/
+* 013a3fb greeting
+* 1a0c39e second commit
+* e4ce9f8 initial commit
+* eeea00e (login) changed readme
+* ea68554 initial commit
+* aff4d03 first commit
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/3-way-merge (main)
+$ git diff main greeting
+diff --git a/3-way-merge/README.md b/3-way-merge/README.md
+deleted file mode 100644
+index 15f25de..0000000
+--- a/3-way-merge/README.md
++++ /dev/null
+@@ -1 +0,0 @@
+-this is read me file
+\ No newline at end of file
+diff --git a/3-way-merge/greeting.txt b/3-way-merge/greeting.txt
+new file mode 100644
+index 0000000..024b2b6
+--- /dev/null
++++ b/3-way-merge/greeting.txt
+@@ -0,0 +1 @@
++Namaste
+\ No newline at end of file
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/3-way-merge (main)
+$ git merge greeting main
+Merge made by the 'recursive' strategy.
+ 3-way-merge/greeting.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 3-way-merge/greeting.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/3-way-merge (main)
+$ git merge greeting main
+Already up to date.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/3-way-merge (main)
+$ git log --oneline --graph --all
+*   9fdb4c6 (HEAD -> main) Merge branch 'greeting' into main
+|\
+| * a23feb9 (greeting) 3 way merge
+* | 3229c1d read me commit
+|/
+* 013a3fb greeting
+* 1a0c39e second commit
+* e4ce9f8 initial commit
+* eeea00e (login) changed readme
+* ea68554 initial commit
+* aff4d03 first commit

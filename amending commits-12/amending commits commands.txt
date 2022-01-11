@@ -1,0 +1,110 @@
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/amending commits-12 (main)
+$ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   ../basic cleaning-11/app.py
+        new file:   ../basic cleaning-11/calc.c
+        new file:   ../basic cleaning-11/src/New Text Document.txt
+        new file:   ../basic cleaning-11/src/mylib.c
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../basic-revert/
+        ../rebase branch/
+        ../reset-10/
+
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/amending commits-12 (main)
+$ git log -p
+commit 8d4f50f8b6e9ceec02389d0ba65102f024eb8808 (HEAD -> main)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 14:56:08 2022 +0530
+
+    Revert "rafath 2nd commit"
+
+    This reverts commit 61b07d68c0ecbaad0d410231f8a358e6451f5a8d.
+
+diff --git a/mergesort/hello.txt b/mergesort/hello.txt
+deleted file mode 100644
+index ce01362..0000000
+--- a/mergesort/hello.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-hello
+
+commit dc2bfe9fef17ffdb7ff6391c85359cfbc5882b00
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:29:37 2022 +0530
+
+    rebase commit
+
+diff --git a/basic-commands/basic commits commands.txt b/basic-commands/basic co
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/amending commits-12 (main)
+$
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/amending commits-12 (main)
+$ touch bar.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/amending commits-12 (main)
+$ echo "this is a text file" >> bar.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/amending commits-12 (main)
+$ git add .
+warning: LF will be replaced by CRLF in amending commits-12/bar.txt.
+The file will have its original line endings in your working directory
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/amending commits-12 (main)
+$ git commit --amend
+[main a940864] Revert "rafath 2nd commit"
+ Date: Tue Jan 11 14:56:08 2022 +0530
+ 6 files changed, 4 insertions(+), 1 deletion(-)
+ create mode 100644 amending commits-12/bar.txt
+ create mode 100644 basic cleaning-11/app.py
+ create mode 100644 basic cleaning-11/calc.c
+ create mode 100644 basic cleaning-11/src/New Text Document.txt
+ create mode 100644 basic cleaning-11/src/mylib.c
+ delete mode 100644 mergesort/hello.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/amending commits-12 (main)
+$ git log -p
+commit a940864cd4a4e7c65cfcb2d50280cecfc50c0640 (HEAD -> main)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 14:56:08 2022 +0530
+
+    Revert "rafath 2nd commit"
+
+    This reverts commit 61b07d68c0ecbaad0d410231f8a358e6451f5a8d.
+
+diff --git a/amending commits-12/bar.txt b/amending commits-12/bar.txt
+new file mode 100644
+index 0000000..e9ea42a
+--- /dev/null
++++ b/amending commits-12/bar.txt
+@@ -0,0 +1 @@
++this is a text file
+diff --git a/basic cleaning-11/app.py b/basic cleaning-11/app.py
+new file mode 100644
+index 0000000..ff10c59
+--- /dev/null
++++ b/basic cleaning-11/app.py
+@@ -0,0 +1,2 @@
++a=3
++print(a)
+
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/amending commits-12 (main)
+$
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/amending commits-12 (main)
+$ git commit --amend
+[main 740f75d] Revert "rafath 2nd commit"
+ Date: Tue Jan 11 14:56:08 2022 +0530
+ 6 files changed, 4 insertions(+), 1 deletion(-)
+ create mode 100644 amending commits-12/bar.txt
+ create mode 100644 basic cleaning-11/app.py
+ create mode 100644 basic cleaning-11/calc.c
+ create mode 100644 basic cleaning-11/src/New Text Document.txt
+ create mode 100644 basic cleaning-11/src/mylib.c
+ delete mode 100644 mergesort/hello.txt

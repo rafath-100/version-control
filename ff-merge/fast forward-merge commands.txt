@@ -1,0 +1,81 @@
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (master)
+$ git branch -m master main
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (main)
+$ git branch
+  login
+* main
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (main)
+$ git branch feature/uppercase
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (main)
+$ git branch
+  feature/uppercase
+  login
+* main
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (main)
+$ git switch feature/uppercase
+Switched to branch 'feature/uppercase'
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (feature/uppercase)
+$ touch greeting.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (feature/uppercase)
+$ git add .
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (feature/uppercase)
+$ git commit -m "greeting"
+[feature/uppercase 013a3fb] greeting
+ 1 file changed, 1 insertion(+)
+ create mode 100644 fast-merge/greeting.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (feature/uppercase)
+$ git branch
+* feature/uppercase
+  login
+  main
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (feature/uppercase)
+$ git log --oneline --graph --all
+* 013a3fb (HEAD -> feature/uppercase) greeting
+* 1a0c39e (main) second commit
+* e4ce9f8 initial commit
+* eeea00e (login) changed readme
+* ea68554 initial commit
+* aff4d03 first commit
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (feature/uppercase)
+$ git switch main
+Deletion of directory 'fast-merge' failed. Should I try again? (y/n) y
+Deletion of directory 'fast-merge' failed. Should I try again? (y/n) n
+Switched to branch 'main'
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (main)
+$ git merge feature/uppercase
+Updating 1a0c39e..013a3fb
+Fast-forward
+ fast-merge/greeting.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 fast-merge/greeting.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (main)
+$ cat
+
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (main)
+$ git diff main feature/uppercase
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (main)
+$ git log --oneline --graph --all
+* 013a3fb (HEAD -> main, feature/uppercase) greeting
+* 1a0c39e second commit
+* e4ce9f8 initial commit
+* eeea00e (login) changed readme
+* ea68554 initial commit
+* aff4d03 first commit
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/fast-merge (main)
+$ cat greeting.txt
+GREETING

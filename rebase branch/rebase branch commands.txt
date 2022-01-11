@@ -1,0 +1,236 @@
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (main)
+$ git branch
+  Mergesort-Impl
+  login
+* main
+  mybranch
+  new
+  ok
+  rafath
+  second
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (main)
+$ git log
+commit dc2bfe9fef17ffdb7ff6391c85359cfbc5882b00 (HEAD -> main, rafath)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:29:37 2022 +0530
+
+    rebase commit
+
+commit 61b07d68c0ecbaad0d410231f8a358e6451f5a8d
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:11:37 2022 +0530
+
+    rafath 2nd commit
+
+commit 5334956b06c292ca36e635996bf5f4de7a177205 (ok)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:22:55 2022 +0530
+
+    mok
+
+commit 05532cc8061cf58d9e91f2253eefe5ccb8f992b8
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:21:43 2022 +0530
+
+    main
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (main)
+$ git switch rafath
+Switched to branch 'rafath'
+D       mergesort/a.txt
+D       mergesort/hello.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git log
+commit dc2bfe9fef17ffdb7ff6391c85359cfbc5882b00 (HEAD -> rafath, main)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:29:37 2022 +0530
+
+    rebase commit
+
+commit 61b07d68c0ecbaad0d410231f8a358e6451f5a8d
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:11:37 2022 +0530
+
+    rafath 2nd commit
+
+commit 5334956b06c292ca36e635996bf5f4de7a177205 (ok)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:22:55 2022 +0530
+
+    mok
+
+commit 05532cc8061cf58d9e91f2253eefe5ccb8f992b8
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:21:43 2022 +0530
+
+    main
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git rebase main
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git add .
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git commit -m "rafath commit"
+On branch rafath
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    ../mergesort/a.txt
+        deleted:    ../mergesort/hello.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../merge-sort/mergesort commands.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git add .
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git status
+On branch rafath
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    ../mergesort/a.txt
+        deleted:    ../mergesort/hello.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../merge-sort/mergesort commands.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git commit -a
+Aborting commit due to empty commit message.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git commit -m "rafath commit"
+On branch rafath
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    ../mergesort/a.txt
+        deleted:    ../mergesort/hello.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../merge-sort/mergesort commands.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git rebase main
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git checkout rafath
+Already on 'rafath'
+D       mergesort/a.txt
+D       mergesort/hello.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git add -A
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git commit -m "rafath commit"
+[rafath 93344e6] rafath commit
+ 3 files changed, 91 insertions(+), 3 deletions(-)
+ create mode 100644 merge-sort/mergesort commands.txt
+ delete mode 100644 mergesort/a.txt
+ delete mode 100644 mergesort/hello.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git status
+On branch rafath
+nothing to commit, working tree clean
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git rebase main
+Current branch rafath is up to date.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git log --oneline --graph --all
+* 93344e6 (HEAD -> rafath) rafath commit
+* dc2bfe9 (main) rebase commit
+* 61b07d6 rafath 2nd commit
+* 5334956 (ok) mok
+* 05532cc main
+* c6cdc31 (second) second commit
+* 83ff373 main commit
+* 5195f22 rafath commit
+* 5505995 main commit
+* 612c09f (new) new
+* 95369fb (origin/main) final commit
+* fa3ebd2 first commit
+* d359c97 (Mergesort-Impl) final commit
+* f1b5ac1 (mybranch) commit to mybranch branch
+* 5219ae0 commit to main branch
+* f2806cf commit after change
+* b7b656a initial commit
+* 3b790e9 commit after change in text file
+* cc0cc7a initial commit
+*   9fdb4c6 Merge branch 'greeting' into main
+|\
+| * a23feb9 3 way merge
+* | 3229c1d read me commit
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git merge main
+Already up to date.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (rafath)
+$ git switch main
+Switched to branch 'main'
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (main)
+$ git merge rafath
+Updating dc2bfe9..93344e6
+Fast-forward
+ merge-sort/mergesort commands.txt | 91 +++++++++++++++++++++++++++++++++++++++
+ mergesort/a.txt                   |  2 -
+ mergesort/hello.txt               |  1 -
+ 3 files changed, 91 insertions(+), 3 deletions(-)
+ create mode 100644 merge-sort/mergesort commands.txt
+ delete mode 100644 mergesort/a.txt
+ delete mode 100644 mergesort/hello.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (main)
+$ git status
+On branch main
+nothing to commit, working tree clean
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase branch (main)
+$ git log
+commit 93344e6960dbf147b96875bfda262fbe150e7919 (HEAD -> main, rafath)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 14:34:54 2022 +0530
+
+    rafath commit
+
+commit dc2bfe9fef17ffdb7ff6391c85359cfbc5882b00
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:29:37 2022 +0530
+
+    rebase commit
+
+commit 61b07d68c0ecbaad0d410231f8a358e6451f5a8d
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:11:37 2022 +0530
+
+    rafath 2nd commit
+
+commit 5334956b06c292ca36e635996bf5f4de7a177205 (ok)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 13:22:55 2022 +0530
+
+    mok

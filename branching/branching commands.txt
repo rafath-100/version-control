@@ -1,0 +1,101 @@
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (main)
+$ git branch
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (main)
+$ git add .
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (main)
+$ git commit -m "first commit"
+[main (root-commit) b9fd190] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 branch.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (main)
+$ git branch
+* main
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (main)
+$ git branch mybranch
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (main)
+$ git branch
+* main
+  mybranch
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (main)
+$ git swiych mybranch
+git: 'swiych' is not a git command. See 'git --help'.
+
+The most similar command is
+        switch
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (main)
+$ git switch mybranch
+Switched to branch 'mybranch'
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (mybranch)
+$ git status
+On branch mybranch
+nothing to commit, working tree clean
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (mybranch)
+$ touch file1.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (mybranch)
+$ ls
+branch.txt  file1.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (mybranch)
+$ git add -A
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (mybranch)
+$ git commit -m "initial commit"
+[mybranch 1eb2815] initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (mybranch)
+$ git log --online --graph
+fatal: unrecognized argument: --online
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (mybranch)
+$ git log --oneline --graph
+* 1eb2815 (HEAD -> mybranch) initial commit
+* b9fd190 (main) first commit
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (mybranch)
+$ git switch main
+Switched to branch 'main'
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (main)
+$ git log --oneline --graph
+* b9fd190 (HEAD -> main) first commit
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (main)
+$ touch file2.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (main)
+$ git log --oneline --graph --all
+* 1eb2815 (mybranch) initial commit
+* b9fd190 (HEAD -> main) first commit
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (main)
+$ git switch mybranch
+Switched to branch 'mybranch'
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (mybranch)
+$ git diff mybranch master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/branching (mybranch)
+$ git diff mybranch main
+diff --git a/file1.txt b/file1.txt
+deleted file mode 100644
+index 6c8db5d..0000000
+--- a/file1.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-file 1
+\ No newline at end of file

@@ -1,0 +1,151 @@
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase-interactive-15 (main)
+$ git rebase main
+Current branch main is up to date.
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase-interactive-15 (main)
+$ git rebase --continue
+fatal: No rebase in progress?
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase-interactive-15 (main)
+$ git add .
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase-interactive-15 (main)
+$ git commit -m "initial commit"
+[main fdb1fe3] initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 rebase-interactive-15/message.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase-interactive-15 (main)
+$ git rebase -i
+There is no tracking information for the current branch.
+Please specify which branch you want to rebase against.
+See git-rebase(1) for details.
+
+    git rebase '<branch>'
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=<remote>/<branch> main
+
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase-interactive-15 (main)
+$ git log --oneline
+fdb1fe3 (HEAD -> main) initial commit
+b752621 final
+d3beffd final
+d9336fc final
+764f905 (merging) ali's merging commit
+a252424 ali's commit
+558016e (origin/main) m
+740f75d Revert "rafath 2nd commit"
+dc2bfe9 rebase commit
+61b07d6 rafath 2nd commit
+5334956 (ok) mok
+05532cc main
+c6cdc31 (second) second commit
+83ff373 main commit
+5195f22 rafath commit
+5505995 main commit
+612c09f (new) new
+95369fb final commit
+fa3ebd2 first commit
+d359c97 (Mergesort-Impl) final commit
+f1b5ac1 (mybranch) commit to mybranch branch
+5219ae0 commit to main branch
+f2806cf commit after change
+
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase-interactive-15 (main)
+$
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase-interactive-15 (main)
+$ git rebase -i c6cdc31
+error: could not apply 764f905... ali's merging commit
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 764f905... ali's merging commit
+CONFLICT (add/add): Merge conflict in merge-sort/ali.txt
+Auto-merging merge-sort/ali.txt
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase-interactive-15 (main|REBASE 7/12)
+$ git log --oneline
+ae90370 (HEAD) ali's commit
+3ea1ca9 m
+28e6883 Revert "rafath 2nd commit"
+61b07d6 rafath 2nd commit
+5334956 (ok) mok
+05532cc main
+c6cdc31 (second) second commit
+83ff373 main commit
+5195f22 rafath commit
+5505995 main commit
+612c09f (new) new
+95369fb final commit
+fa3ebd2 first commit
+d359c97 (Mergesort-Impl) final commit
+f1b5ac1 (mybranch) commit to mybranch branch
+5219ae0 commit to main branch
+f2806cf commit after change
+b7b656a initial commit
+3b790e9 commit after change in text file
+cc0cc7a initial commit
+9fdb4c6 Merge branch 'greeting' into main
+3229c1d read me commit
+a23feb9 3 way merge
+
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase-interactive-15 (main|REBASE 7/12)
+$
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase-interactive-15 (main|REBASE 7/12)
+$ git log --stat
+commit ae9037024ea2e5cc0897ec0d9ea0e8cddb20def6 (HEAD)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 15:51:45 2022 +0530
+
+    ali's commit
+
+ merge-sort/ali.txt   | 1 +
+ merge-sort/hello.txt | 2 --
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+commit 3ea1ca9baff24173b5e7869099263f9bbbf05d06
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 15:39:30 2022 +0530
+
+    m
+
+ amending commits-12/amending commits commands.txt | 110 ++++++++++
+ basic cleaning-11/basic cleaning commands.txt     |  57 ++++++
+ basic cleaning-11/src/New Text Document.txt       |   0
+ basic cleaning-11/src/mylib.c                     |   7 +
+ basic-revert/basic revert commands.txt            | 208 +++++++++++++++++++
+ mergesort/a.txt                                   |   2 -
+ rebase branch/rebase branch commands.txt          | 236 ++++++++++++++++++++++
+
+HP@DESKTOP-I3A7O7N MINGW64 ~/Desktop/zemoso/rebase-interactive-15 (main|REBASE 7/12)
+$ git log --patch
+commit ae9037024ea2e5cc0897ec0d9ea0e8cddb20def6 (HEAD)
+Author: Rafath Ali <rafathali.mir@zemosolabs.com>
+Date:   Tue Jan 11 15:51:45 2022 +0530
+
+    ali's commit
+
+diff --git a/merge-sort/ali.txt b/merge-sort/ali.txt
+new file mode 100644
+index 0000000..de12b7c
+--- /dev/null
++++ b/merge-sort/ali.txt
+@@ -0,0 +1 @@
++ali
+diff --git a/merge-sort/hello.txt b/merge-sort/hello.txt
+deleted file mode 100644
+index 4b952d4..0000000
+--- a/merge-sort/hello.txt
++++ /dev/null
+@@ -1,2 +0,0 @@
+-abcde
+-fghi
+
